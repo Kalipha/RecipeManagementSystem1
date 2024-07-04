@@ -1,0 +1,54 @@
+﻿@model RecipeManagementSystem.Models.Recipe.RecipeViewModel
+
+@{
+    ViewData["Title"] = "Delete Recipe";
+}
+
+<h1>Delete Recipe</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Recipe</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Recipe Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RecipeName)
+        </dd>
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            Ingredients
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ingredients)
+        </dd>
+        <dt class="col-sm-2">
+            Procedure
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Procedure)
+        </dd>
+        <dt class="col-sm-2">
+            Category
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CategoryId)
+        </dd>
+    </dl>
+
+    <span>Are you sure you want to Delete this BreakFast?</span>
+    <form asp-action="Delete" method="post" asp-route-id="@Model.Id">
+        <button>Yes</button>
+    </form>
+    <br />
+    <form asp-action="Index">
+        <button>No</button>
+    </form>
+</div>

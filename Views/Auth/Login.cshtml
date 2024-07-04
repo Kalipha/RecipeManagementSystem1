@@ -1,0 +1,28 @@
+﻿@model RecipeManagementSystem.Models.Auth.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr>
+
+<form asp-action="Login" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label"></label>
+        <input type="text" class="form-control" asp-for="Username">
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input type="password" class="form-control" asp-for="Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Login</button>
+    <p>
+        Don't have an account? <a asp-controller="Auth" asp-action="Register">Sign Up</a>
+    </p>
+</form>

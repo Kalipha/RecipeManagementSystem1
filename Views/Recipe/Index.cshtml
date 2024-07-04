@@ -1,0 +1,67 @@
+﻿@model IEnumerable<RecipeManagementSystem.Models.Recipe.RecipeViewModel>
+
+@{
+    ViewData["Title"] = "Recipes";
+}
+
+
+<h1>Recipes</h1>
+
+@if (User.IsInRole("Creator"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Image
+            </th>
+            <th>
+                RecipeName
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Ingredients
+            </th>
+            <th>
+                Procedure
+            </th>
+            <th>
+                CategoryId
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var recipe in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(recipe.Imagepath))
+                    {
+                        <img src="@recipe.Image" alt="@recipe.RecipeName" style="width: 100px height: auto;" />
+                    }
+                </td>
+                <td>
+                    @recipe.RecipeName
+                </td>
+                <td>
+                    @recipe.Description
+                </td>
+                <td>
+                    @if (User.IsInRole("Creator"))
+                    {
+                        <a asp-controller="Recipe" asp-action="Edit" asp-route-id="@recipe.Id">Edit</a>
+                        <a asp-controller="Recipe" asp-action="Delete" asp-route-id="@recipe.Id">Delete</a>
+                    }
+                    <a asp-controller="Recipe" asp-action="Details" asp-route-id="@recipe.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
