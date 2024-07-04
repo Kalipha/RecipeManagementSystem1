@@ -24,7 +24,11 @@ namespace RecipeManagementSystem.Context
 
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Category> Categories { get; set; }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 5fa03cbbb55b4349f355f97c3aff9bfa0c4b38f8
     }
 
 }

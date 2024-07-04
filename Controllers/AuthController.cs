@@ -34,7 +34,11 @@ namespace RecipeManagementSystem.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
+<<<<<<< HEAD
                     return RedirectToAction("LoginViewModel", "Auth");
+=======
+                    return RedirectToAction("Auth", "Login");
+>>>>>>> 5fa03cbbb55b4349f355f97c3aff9bfa0c4b38f8
                 }
                 foreach (var error in result.Errors)
                 {
@@ -63,7 +67,11 @@ namespace RecipeManagementSystem.Controllers
                     var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, false, lockoutOnFailure: false);
                     if (result.Succeeded)
                     {
+<<<<<<< HEAD
                         return RedirectToAction("Index", "Recipe");                       
+=======
+                        return RedirectToAction("Recipe", "Index");                       
+>>>>>>> 5fa03cbbb55b4349f355f97c3aff9bfa0c4b38f8
                     }
                 }
 
