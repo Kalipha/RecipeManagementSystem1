@@ -1,0 +1,52 @@
+﻿ @model RecipeManagementSystem.Models.Recipe.RecipeViewModel
+
+@{
+    ViewData["Title"] = "Edit Recipe";
+}
+<form asp-action="Recipe" enctype="multipart/form-data">
+
+    <div class="mb-3">
+        <label asp-for="RecipeName" class="form-label"></label>
+        <input type="text" class="form-control" asp-for="RecipeName">
+        <span asp-validation-for="RecipeName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CategoryId" class="form-label"></label>
+        <select asp-for="CategoryId" class="form-control">
+            <option value="" selected hidden disabled>Select </option>
+            @foreach (var item in Model.Categories)
+            {
+                <option value="@item.CategoryName">@item.CategoryName</option>
+            }
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea class="form-control" asp-for="Description"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Ingredients" class="form-label"></label>
+        <textarea class="form-control" asp-for="Ingredients"></textarea>
+        <span asp-validation-for="Ingredients" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Procedure" class="form-label"></label>
+        <textarea class="form-control" asp-for="Procedure"></textarea>
+        <span asp-validation-for="Procedure" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Image" class="form-label"></label>
+        <input class="form-control" asp-for="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Create</button>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
