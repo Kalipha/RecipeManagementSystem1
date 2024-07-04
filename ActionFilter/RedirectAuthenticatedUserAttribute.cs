@@ -13,7 +13,7 @@ namespace RecipeManagementSystem.ActionFilter
         {
             if (context.HttpContext.User.Identity!.IsAuthenticated)
             {
-                context.Result = new RedirectToActionResult("Index", "recipe", null);
+                context.Result = new RedirectToActionResult("Index", "Recipe", null);
             }
         }
     }
